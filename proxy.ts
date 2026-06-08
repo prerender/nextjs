@@ -12,7 +12,7 @@ export async function proxy(request: NextRequest) {
     "skypeuripreview", "nuzzel", "discordbot", "google page speed", "qwantify",
     "pinterestbot", "bitrix link preview", "xing-contenttabreceiver",
     "chrome-lighthouse", "telegrambot", "oai-searchbot", "chatgpt", "gptbot",
-    "perplexity", "claudebot", "amazonbot", "integration-test",
+    "perplexity", "claudebot", "amazonbot", "integration-test", "iframely",
   ];
 
   const IGNORE_EXTENSIONS = [
