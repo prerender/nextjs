@@ -12,7 +12,7 @@ export async function middleware(request) {
     "skypeuripreview", "nuzzel", "discordbot", "google page speed", "qwantify",
     "pinterestbot", "bitrix link preview", "xing-contenttabreceiver",
     "chrome-lighthouse", "telegrambot", "oai-searchbot", "chatgpt", "gptbot",
-    "perplexity", "claudeBot", "amazonbot", "integration-test",
+    "perplexity", "claudeBot", "amazonbot", "integration-test", "iframely",
   ];
 
   const IGNORE_EXTENSIONS = [
