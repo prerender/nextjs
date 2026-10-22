@@ -34,7 +34,15 @@ export async function middleware(request) {
   }
 
   const newURL = `http://service.prerender.io/${request.url}`;
-  const newHeaders = new Headers(request.headers);
+  // Forward only an allowlist. Copying every inbound header lets a caller inject
+  // Prerender's own control headers - e.g. X-Prerender-Url makes the service
+  // render an attacker-chosen URL on your token (open proxy / SSRF). Never
+  // forward client X-Prerender-* headers; we set the trusted ones below.
+  const newHeaders = new Headers();
+  for (const name of ["user-agent", "accept", "accept-language"]) {
+    const value = request.headers.get(name);
+    if (value) newHeaders.set(name, value);
+  }
   newHeaders.set("X-Prerender-Token", process.env.PRERENDER_TOKEN);
   newHeaders.set("X-Prerender-Int-Type", "NextJS");
 
